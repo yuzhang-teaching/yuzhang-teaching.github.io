@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SciMult</title>
+
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-552M76N');</script>
+<!-- End Google Tag Manager -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="icon" href="./static/images/tamu.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <style>
+    .err1marker {
+      background-color: rgb(202,229,242);
+      padding: 3px;
+    }
+    .err2marker {
+      background-color: rgb(254,255,126);
+      padding: 3px;
+    }
+    .err3marker {
+      background-color: rgb(153,240,194);
+      padding: 3px;
+    }
+  </style>
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552M76N" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-1 publication-title">CSCE 689 - Special Topics in NLP for Science (Spring 2025)</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop is-centered has-text-centered">
+      <h2 class="title is-3">Introduction</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          Scientific literature understanding plays a pivotal role in uncovering knowledge structures that facilitate scientific discovery. Recent studies highlight the effectiveness of pre-trained language models in scientific literature understanding tasks, especially when tuned through contrastive learning. However, there is a gap in jointly utilizing data across different tasks for language model pre-training.
+        </p>
+        <p>
+          While multi-task learning is promising for improved parameter efficiency, sharing all parameters across tasks leads to undesirable task interference. To address this problem, we consider <b>the Mixture-of-Experts Transformer</b> architecture, which modifies the Transformer block in the language model to have multiple parallel sub-layers, each of which is dedicated for one task. When performing different tasks, the input will be routed to different sub-layers based on task types.
+        </p>
+        <p>
+          We conduct a comprehensive empirical study using datasets from multiple sources (e.g., <b>MAPLE</b>, <b>SciDocs</b>, <b>SciRepEval</b>, <b>BEIR</b>, and <b>PMC-Patients</b>) for evaluating various scientific literature understanding tasks. For each task, models will be tested on not only <b>in-domain</b> but also <b>cross-domain</b> evaluation datasets. Specifically, for extreme multi-label text classification, models trained on computer science and biomedicine papers will be tested in the geography and psychology fields; for link prediction, models trained on citation signals need to be evaluated on patient-to-patient matching and paper recommendation; for literature retrieval, models will be tested on datasets specific to COVID-19 or related to claim verification which are not seen during pre-training. <b>Experimental results show that SciMult outperforms competitive scientific pre-trained language models on most datasets and achieves the new state-of-the-art performance on the PMC-Patients leaderboard.</b>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop is-centered has-text-centered">
+      <h2 class="title is-3">Evaluation Datasets</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          The preprocessed evaluation datasets can be downloaded from <a href="https://drive.google.com/file/d/1hoUAInDVO_UYnQiOOoVuBjwnVgY0BosO/view?usp=drive_link" target="_blank">here</a>.
+        </p>
+        <p>
+          <b>Disclaimer:</b> The aggregate version is released under the ODC-By v1.0 License. By downloading this version you acknowledge that you have read and agreed to all the terms in this license. Similar to Tensorflow datasets or Hugging Face's datasets library, we just downloaded and prepared public datasets. We only distribute these datasets in a specific format, but we do not vouch for their quality or fairness, or claim that you have the license to use the dataset. It remains the user's responsibility to determine whether you as a user have permission to use the dataset under the dataset's license and to cite the right owner of the dataset.
+        </p>
+        <p>
+          More details about each constituent dataset can be found in our <a href="https://github.com/yuzhimanhua/SciMult#datasets" target="_blank">GitHub repository</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
