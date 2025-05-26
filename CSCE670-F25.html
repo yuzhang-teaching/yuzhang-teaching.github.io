@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSCE689-S25</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="icon" href="./static/images/tamu.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <style>
+    .err1marker {
+      background-color: rgb(202,229,242);
+      padding: 3px;
+    }
+    .err2marker {
+      background-color: rgb(254,255,126);
+      padding: 3px;
+    }
+    .err3marker {
+      background-color: rgb(153,240,194);
+      padding: 3px;
+    }
+    body {
+      margin-left: 120px;
+      margin-right: 120px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+    h2 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    table {
+      font-size: 14px;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+    }
+    .dark-red {
+      color: darkred;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+<body>
+
+
+<header style="text-align: center; padding: 2em 0; border-bottom: 1px solid #ccc;">
+  <h1 style="font-size: 2em; margin: 0;">CSCE 670 - Information Storage and Retrieval (Fall 2025)</h1>
+</header>
+
+
+<h2><big><strong>Course Information</strong></big></h2>
+<ul>
+  <li><strong>Instructor:</strong> <a href="https://yuzhimanhua.github.io">Yu Zhang</a> (yuzhang [AT] tamu [DOT] edu)</li>
+  <li><strong>TA:</strong> <a href="https://flypig23.github.io">Hangxiao Zhu</a> (hangxiao [AT] tamu [DOT] edu)</li>
+  <li><strong>Lectures:</strong>
+    <ul style="margin-left: 40px;">
+        <li><strong>Time:</strong> Tuesdays and Thursdays 5:30pm – 6:45pm</li>
+        <li><strong>Location:</strong> HRBB 113</li>
+    </ul>
+  </li>
+  <li><strong>Instructor Office Hour:</strong>
+    <ul style="margin-left: 40px;">
+        <li><strong>Time:</strong> Thursdays 3pm – 4pm</li>
+        <li><strong>Location:</strong> PETR 222</li>
+    </ul>
+  </li>
+  <li><strong>TA Office Hour:</strong>
+    <ul style="margin-left: 40px;">
+        <li><strong>Time:</strong> TBD</li>
+        <li><strong>Location:</strong> TBD</li>
+    </ul>
+  </li>
+  <li><strong>Syllabus:</strong> <a href="CSCE670-F25/Syllabus.pdf">PDF</a></li>
+  <li><strong>Zoom Link (for Guest Lectures):</strong> <a href="https://tamu.zoom.us/j/6411788612">https://tamu.zoom.us/j/6411788612</a></li>
+</ul>
+
+
+<h2><big><strong>Grading</strong></big></h2>
+<ul>
+  <li><strong>Homework:</strong> 30%
+    <ul style="margin-left: 40px;">
+        <li><strong>Homework 0:</strong> 2% <span class="dark-red">[due xxx]</span></li>
+        <li><strong>Homework 1:</strong> 7% <span class="dark-red">[due xxx]</span></li>
+        <li><strong>Homework 2:</strong> 7% <span class="dark-red">[due xxx]</span></li>
+        <li><strong>Homework 3:</strong> 7% <span class="dark-red">[due xxx]</span></li>
+        <li><strong>Homework 4:</strong> 7% <span class="dark-red">[due xxx]</span></li>
+    </ul>
+  </li>
+  <li><strong>Quizzes:</strong> 20%
+    <ul style="margin-left: 40px;">
+        <li><strong>Quiz 1:</strong> 5% <span class="dark-red">[in the xxx class]</span></li>
+        <li><strong>Quiz 2:</strong> 5% <span class="dark-red">[in the xxx class]</span></li>
+        <li><strong>Quiz 3:</strong> 5% <span class="dark-red">[in the xxx class]</span></li>
+        <li><strong>Quiz 4:</strong> 5% <span class="dark-red">[in the xxx class]</span></li>
+    </ul>
+  </li>
+  <li><strong>Group Project:</strong> 20%
+    <ul style="margin-left: 40px;">
+        <li><strong>Presentation:</strong> 10% <span class="dark-red">[in the xxx classes]</span></li>
+        <li><strong>Report:</strong> 10% <span class="dark-red">[due xxx]</span></li>
+    </ul>
+  </li>
+  <li><strong>Final:</strong> 30% <span class="dark-red">3:30pm – 5:30pm, December 16, HRBB 113</span></li>
+</ul>
+
+
+<h2><big><b>Schedule (Subject to changes)</b></big></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Date</th>
+      <th>Topic</th>
+      <th>Papers</th>
+      <th>Slides</th>
+      <th>Presenter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>W1</b></td>
+      <td><b>1/14</b></td>
+      <td><b>Course Overview</b></td>
+      <td>-</td>
+      <td><a href="CSCE689-S25/L1.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/16</b></td>
+      <td><b>Scientific LLMs: Encoder-Only & Encoder-Decoder</b></td>
+      <td>
+        * <a href="https://aclanthology.org/D19-1371.pdf">SciBERT: A Pretrained Language Model for Scientific Text</a> [EMNLP 2019]<br>
+        * <a href="https://academic.oup.com/bioinformatics/article/36/4/1234/5566506">BioBERT: A Pre-trained Biomedical Language Representation Model for Biomedical Text Mining</a> [Bioinformatics 2020]<br>
+        * <a href="https://arxiv.org/pdf/2104.09585">ELECTRAMed: A New Pre-trained Language Representation Model for Biomedical NLP</a> [arXiv 2021]<br> 
+        * <a href="https://arxiv.org/pdf/2106.03598">SciFive: A Text-to-Text Transformer Model for Biomedical Literature</a> [arXiv 2021]<br> </td>
+      <td><a href="CSCE689-S25/L2.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="LightCoral">
+      <td><b>W2</b></td>
+      <td> <b>1/21</b> </td>
+      <td colspan="4" align="center"> <b>Campus-Wide Class Cancellation</b> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/23</b></td>
+      <td> <b>Scientific LLMs: Decoder-Only</b> </td>
+      <td>
+        * <a href="https://openreview.net/pdf?id=IFXTZERXdM7">Solving Quantitative Reasoning Problems with Language Models</a> [NeurIPS 2022]<br>
+        * <a href="https://openreview.net/pdf?id=LC1QAqhePv">SciInstruct: A Self-Reflective Instruction Annotated Dataset for Training Scientific Language Models</a> [NeurIPS 2024]<br>
+        * <a href="https://aclanthology.org/2024.findings-acl.348.pdf">BioMistral: A Collection of Open-Source Pretrained Large Language Models for Medical Domains</a> [ACL 2024]<br>
+        * <a href="https://aclanthology.org/2024.acl-long.184.pdf">OceanGPT: A Large Language Model for Ocean Science Tasks</a> [ACL 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L3.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr>
+      <td><b>W3</b></td>
+      <td><b>1/28</b></td>
+      <td> <b>Citation Prediction</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/2020.acl-main.207.pdf">SPECTER: Document-Level Representation Learning using Citation-Informed Transformers</a> [ACL 2020]<br>
+        * <a href="https://aclanthology.org/2022.emnlp-main.802.pdf">Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings</a> [EMNLP 2022]<br>
+        * <a href="https://aclanthology.org/2021.acl-long.166.pdf">Explaining Relationships between Scientific Documents</a> [ACL 2021]<br>
+        * <a href="https://aclanthology.org/2023.emnlp-main.338.pdf">SciRepEval: A Multi-Format Benchmark for Scientific Document Representations</a> [EMNLP 2023]<br>
+      </td>
+      <td><a href="CSCE689-S25/L4.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>1/30</b> </td>
+      <td> <b>Scientific Question Answering</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/D19-1259.pdf">PubMedQA: A Dataset for Biomedical Research Question Answering</a> [EMNLP 2019]<br>
+        * <a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3645643">Better to Ask in English: Cross-Lingual Evaluation of Large Language Models for Healthcare Queries</a> [WWW 2024]<br>
+        * <a href="https://openreview.net/pdf?id=N8N0hgNDRt">MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models</a> [ICLR 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L5.pdf">PDF</a></td>
+      <td> <b>Yichen</b> </td>
+    </tr>
+    <tr>
+      <td><b>W4</b></td>
+      <td> <b>2/4</b> </td>
+      <td> <b>Scientific Knowledge Extraction</b> </td>
+      <td>
+        * <a href="https://academic.oup.com/bioinformatics/article/39/5/btad310/7160912">AIONER: All-in-One Scheme-Based Biomedical Named Entity Recognition using Deep Learning</a> [Bioinformatics 2023]<br>
+        * <a href="https://aclanthology.org/2024.emnlp-main.726.pdf">SciER: An Entity and Relation Extraction Dataset for Datasets, Methods, and Tasks in Scientific Documents</a> [EMNLP 2024]<br>
+        * <a href="https://aclanthology.org/2023.findings-acl.767.pdf">ReactIE: Enhancing Chemical Reaction Extraction with Weak Supervision</a> [ACL 2023]<br>
+        * <a href="https://aclanthology.org/2024.acl-long.683.pdf">ActionIE: Action Extraction from Scientific Literature with Programming Languages</a> [ACL 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L6.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> <b>2/6</b> </td>
+      <td> <b>Scientific Literature Retrieval</b> </td>
+      <td>
+        * <a href="https://academic.oup.com/bioinformatics/article/39/11/btad651/7335842">MedCPT: Contrastive Pre-trained Transformers with Large-scale PubMed Search Logs for Zero-shot Biomedical Information Retrieval</a> [Bioinformatics 2023]<br>
+        * <a href="https://aclanthology.org/2024.emnlp-main.1241.pdf">BMRetriever: Tuning Large Language Models as Better Biomedical Text Retrievers</a> [EMNLP 2024]<br>
+        * <a href="https://aclanthology.org/2020.emnlp-main.609.pdf">Fact or Fiction: Verifying Scientific Claims</a> [EMNLP 2020]<br>
+        * <a href="https://aclanthology.org/2023.findings-emnlp.820.pdf">Pre-training Multi-task Contrastive Learning Models for Scientific Literature Understanding</a> [EMNLP 2023]<br>  
+      </td>
+      <td><a href="CSCE689-S25/L7.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr>
+      <td><b>W5</b></td>
+      <td> <b>2/11</b> </td>
+      <td> <b>Scientific VLMs: Bioimaging</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/2022.emnlp-main.256.pdf">MedCLIP: Contrastive Learning from Unpaired Medical Images and Text</a> [EMNLP 2022]<br>
+        * <a href="https://www.nature.com/articles/s41591-023-02504-3">A Visual–Language Foundation Model for Pathology Image Analysis using Medical Twitter</a> [Nature Medicine 2023]<br>
+        * <a href="https://openreview.net/pdf?id=GSuP99u2kR">LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day</a> [NeurIPS 2023]<br>
+        * <a href="https://www.nature.com/articles/s41591-024-03185-2">A Generalist Vision-Language Foundation Model for Diverse Biomedical Tasks</a> [Nature Medicine 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L8.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>2/13</b> </td>
+      <td> <b>Scientific VLMs: Geometry</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/2023.emnlp-main.440.pdf">UniMath: A Foundational and Multimodal Mathematical Reasoner</a> [EMNLP 2023]<br>
+        * <a href="https://arxiv.org/pdf/2312.11370">G-LLaVA: Solving Geometric Problem with Multi-Modal Large Language Model</a> [ICLR 2025]<br>
+        * <a href="https://aclanthology.org/2024.findings-emnlp.268.pdf">Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models</a> [EMNLP 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L9.pdf">PDF</a></td>
+      <td> <b>Shuo</b> </td>
+    </tr>
+    <tr>
+      <td><b>W6</b></td>
+      <td> <b>2/18</b> </td>
+      <td colspan="2" align="center">
+        <b>[Guest Lecture] Hanwen Xu (University of Washington): Towards Patient Level Representations for Better Clinical Outcome</b> <br>
+        * Suggested Reading: <a href="https://www.nature.com/articles/s41586-024-07441-w">A Whole-Slide Foundation Model for Digital Pathology from Real-World Data</a> [Nature 2024] <br>
+      </td>
+      <td> N/A </td>
+      <td> <b>Guest Lecturer</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>2/20</b> </td>
+      <td> <b>Scientific VLMs: Miscellaneous</b> </td>
+      <td>
+        * <a href="https://arxiv.org/pdf/2310.18340">UrbanCLIP: Learning Text-Enhanced Urban Region Profiling with Contrastive Language-Image Pretraining from the Web</a> [WWW 2024]<br>
+        * <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf">BioCLIP: A Vision Foundation Model for the Tree of Life</a> [CVPR 2024]<br>
+        * <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Yue_MMMU_A_Massive_Multi-discipline_Multimodal_Understanding_and_Reasoning_Benchmark_for_CVPR_2024_paper.pdf">MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI</a> [CVPR 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L11.pdf">PDF</a></td>
+      <td> <b>Hasnat</b> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td> <b>2/23</b> </td>
+      <td colspan="4" align="center"> <span class="dark-red">Project Proposal Due (Sunday)</span> </td>
+    </tr>
+    <tr>
+      <td><b>W7</b></td>
+      <td> <b>2/25</b> </td>
+      <td> <b>Protein Language Models</b> </td>
+      <td>
+        * <a href="https://www.science.org/doi/10.1126/science.ade2574">Evolutionary-Scale Prediction of Atomic-Level Protein Structure with a Language Model</a> [Science 2023]<br>
+        * <a href="https://www.nature.com/articles/s41587-022-01618-2">Large Language Models Generate Functional Protein Sequences across Diverse Families</a> [Nature Biotechnology 2023]<br>
+        * <a href="https://proceedings.mlr.press/v202/xu23t/xu23t.pdf">ProtST: Multi-Modality Learning of Protein Sequences and Biomedical Texts</a> [ICML 2023]<br>
+        * <a href="https://aclanthology.org/2023.emnlp-main.70.pdf">BioT5: Enriching Cross-modal Integration in Biology with Chemical Knowledge and Natural Language Associations</a> [EMNLP 2023]<br>
+      </td>
+      <td><a href="CSCE689-S25/L12.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>2/27</b> </td>
+      <td> <b>DNA/RNA/Single-Cell Language Models</b> </td>
+      <td>
+        * <a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680">DNABERT: Pre-trained Bidirectional Encoder Representations from Transformers Model for DNA-Language in Genome</a> [Bioinformatics 2021]<br>
+        * <a href="https://www.nature.com/articles/s42256-024-00823-9">A 5' UTR Language Model for Decoding Untranslated Regions of mRNA and Function Predictions </a> [Nature Machine Intelligence 2024]<br>
+        * <a href="https://www.nature.com/articles/s41592-024-02201-0">scGPT: Towards Building a Foundation Model for Single-Cell Multi-omics using Generative AI</a> [Nature Methods 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L13.pdf">PDF</a></td>
+      <td> <b>Omnia</b> </td>
+    </tr>
+    <tr>
+      <td><b>W8</b></td>
+      <td> <b>3/4</b> </td>
+      <td> <b>Molecule Language Models</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/2021.emnlp-main.47.pdf">Text2Mol: Cross-Modal Molecule Retrieval with Natural Language Queries</a> [EMNLP 2021]<br>
+        * <a href="https://aclanthology.org/2022.emnlp-main.26.pdf">Translation between Molecules and Natural Language</a> [EMNLP 2022]<br>
+        * <a href="https://openreview.net/pdf?id=lY6XTF9tPv">LlaSMol: Advancing Large Language Models for Chemistry with a Large-Scale, Comprehensive, High-Quality Instruction Tuning Dataset</a> [COLM 2024]<br>
+        * <a href="https://openreview.net/pdf?id=vN9fpfqoP1">Fine-Tuned Language Models Generate Stable Inorganic Materials as Text</a> [ICLR 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L14.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>3/6</b> </td>
+      <td> <b>Urban Language Models</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/2022.findings-emnlp.200.pdf">SpaBERT: A Pretrained Language Model from Geographic Data for Geo-Entity Representation</a> [EMNLP 2022]<br>
+        * <a href="https://aclanthology.org/2023.emnlp-main.317.pdf">GeoLM: Empowering Language Models for Geospatially Grounded Language Understanding</a> [EMNLP 2023]<br>
+        * <a href="https://dl.acm.org/doi/pdf/10.1145/3637528.3671578">UrbanGPT: Spatio-Temporal Large Language Models</a> [KDD 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L15.pdf">PDF</a></td>
+      <td> <b>Shaohuai</b> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td> <b>3/7</b> </td>
+      <td colspan="4" align="center"> <span class="dark-red">Literature Review Due (Friday)</span> </td>
+    </tr>
+    <tr bgcolor="LightCoral">
+      <td><b>W9</b></td>
+      <td> <b>3/11</b> </td>
+      <td colspan="4" align="center"> <b>Spring Break (No Class)</b> </td>
+    </tr>
+    <tr bgcolor="LightCoral">
+      <td> </td>
+      <td> <b>3/13</b> </td>
+      <td colspan="4" align="center"> <b>Spring Break (No Class)</b> </td>
+    </tr>
+    <tr>
+      <td> <b>W10</b> </td>
+      <td> <b>3/18</b> </td>
+      <td colspan="2" align="center"> 
+        <b>[Guest Lecture] Bowen Jin (University of Illinois Urbana-Champaign): Large Language Models on Scientific Text-Attributed Graphs</b> <br>
+        * Suggested Reading: <a href="https://aclanthology.org/2024.findings-acl.11.pdf">Graph Chain-of-Thought: Augmenting Large Language Models by Reasoning on Graphs</a> [ACL 2024] <br>
+      </td>
+      <td><a href="CSCE689-S25/L16.pdf">PDF</a></td>
+      <td> <b>Guest Lecturer</b> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> <b>3/20</b> </td>
+      <td> <b>Language Models with Academic Graphs</b> </td>
+      <td>
+        * <a href="https://dl.acm.org/doi/pdf/10.1145/3534678.3539210">OAG-BERT: Towards a Unified Backbone Language Model for Academic Knowledge Services</a> [KDD 2022]<br> 
+        * <a href="https://aclanthology.org/2022.acl-long.551.pdf">LinkBERT: Pretraining Language Models with Document Links</a> [ACL 2022]<br>
+        * <a href="https://dl.acm.org/doi/pdf/10.1145/3485447.3512174">Metadata-Induced Contrastive Learning for Zero-Shot Multi-Label Text Classification</a> [WWW 2022]<br>
+        * <a href="https://openreview.net/pdf?id=xdg4CS5mkl">Investigating Instruction Tuning Large Language Models on Graphs</a> [COLM 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L17.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td> <b>W11</b> </td>
+      <td> <b>3/25</b> </td>
+      <td colspan="2" align="center"> <b>Midterm Project Presentations</b> </td>
+      <td> N/A </td>
+      <td> <b>Students</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>3/27</b> </td>
+      <td> <b>Table Language Models</b> </td>
+      <td>
+        * <a href="https://aclanthology.org/2020.acl-main.745.pdf">TaBERT: Learning Contextual Representations for Natural Language Utterances and Structured Tables</a> [ACL 2020]<br>
+        * <a href="https://aclanthology.org/2024.naacl-long.335.pdf">TableLlama: Towards Open Large Generalist Models for Tables</a> [NAACL 2024]<br>
+        * <a href="https://arxiv.org/pdf/2410.20163">UniHGKR: Unified Instruction-aware Heterogeneous Knowledge Retrievers</a> [NAACL 2025]<br>
+        * <a href="https://www.nature.com/articles/s41586-024-08328-6">Accurate Predictions on Small Data with a Tabular Foundation Model</a> [Nature 2025]<br>
+      </td>
+      <td><a href="CSCE689-S25/L18.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td> <b>3/30</b> </td>
+      <td colspan="4" align="center"> <span class="dark-red">Midterm Report Due (Sunday)</span> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td><b>W12</b></td>
+      <td> <b>4/1</b> </td>
+      <td> <b>LLMs for Research: Idea Generation</b> </td>
+      <td>
+        * <a href="https://arxiv.org/pdf/2404.07738">ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models</a> [NAACL 2025]<br>
+        * <a href="https://arxiv.org/pdf/2410.14255">Nova: An Iterative Planning and Search Approach to Enhance Novelty and Diversity of LLM Generated Ideas</a> [arXiv 2024]<br>
+        * <a href="https://arxiv.org/abs/2409.04109">Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers</a> [ICLR 2025]<br>
+      </td>
+      <td><a href="CSCE689-S25/L19.pdf">PDF</a></td>
+      <td> <b>Hangxiao</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>4/3</b> </td>
+      <td> <b>LLMs for Research: Content Generation</b> </td>
+      <td>
+        * <a href="https://openreview.net/pdf?id=YX7QnhxESU">Mapping the Increasing Use of LLMs in Scientific Papers</a> [COLM 2024]<br>
+        * <a href="https://openreview.net/pdf?id=bX3J7ho18S">Monitoring AI-Modified Content at Scale: A Case Study on the Impact of ChatGPT on AI Conference Peer Reviews</a> [ICML 2024]<br>
+        * <a href="https://arxiv.org/abs/2406.10370">Let's Get to the Point: LLM-Supported Planning, Drafting, and Revising of Research-Paper Blog Posts</a> [arXiv 2023]<br>
+      </td>
+      <td><a href="CSCE689-S25/L20.pdf">PDF</a></td>
+      <td> <b>Ethan</b> </td>
+    </tr>
+    <tr>
+      <td><b>W13</b></td>
+      <td> <b>4/8</b> </td>
+      <td colspan="2" align="center"> 
+        <b>[Guest Lecture] Qingyun Wang (University of Illinois Urbana-Champaign): AI4Scientist: Accelerating and Democratizing Scientific Research Lifecycle</b> <br>
+        * Suggested Reading: <a href="https://aclanthology.org/2024.acl-long.18.pdf">SciMON: Scientific Inspiration Machines Optimized for Novelty</a> [ACL 2024] <br>
+      </td>
+      <td> N/A </td>
+      <td> <b>Guest Lecturer</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>4/10</b> </td>
+      <td> <b>LLMs for Research: Reviewing</b> </td>
+      <td>
+        * <a href="https://arxiv.org/pdf/2310.01783">Can Large Language Models Provide Useful Feedback on Research Papers? A Large-Scale Empirical Analysis</a> [NEJM AI 2024]<br>
+        * <a href="https://aclanthology.org/2024.emnlp-main.292.pdf">LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing</a> [EMNLP 2024]<br>
+        * <a href="https://aclanthology.org/2024.emnlp-main.70.pdf">AgentReview: Exploring Peer Review Dynamics with LLM Agents</a> [EMNLP 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L22.pdf">PDF</a></td>
+      <td> <b>Michael</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td><b>W14</b></td>
+      <td> <b>4/15</b> </td>
+      <td> <b>LLMs for Research: Miscellaneous</b> </td>
+      <td>
+        * <a href="https://ojs.aaai.org/index.php/AAAI/article/view/21456">A Search Engine for Discovery of Scientific Challenges and Directions</a> [AAAI 2022]<br>
+        * <a href="https://arxiv.org/pdf/2310.14483">Chain-of-Factors Paper-Reviewer Matching</a> [WWW 2025]<br>
+        * <a href="https://aclanthology.org/2024.acl-long.377.pdf">ARIES: A Corpus of Scientific Paper Edits Made in Response to Peer Reviews</a> [ACL 2024]<br>
+      </td>
+      <td><a href="CSCE689-S25/L23.pdf">PDF</a></td>
+      <td> <b>Instructor</b> </td>
+    </tr>
+    <tr bgcolor="Lavender">
+      <td> </td>
+      <td> <b>4/17</b> </td>
+      <td> <b>Scientific Agents</b> </td>
+      <td>
+        * <a href="https://www.nature.com/articles/s41586-023-06792-0">Autonomous Chemical Research with Large Language Models</a> [Nature 2023]<br>
+        * <a href="https://www.nature.com/articles/s42256-024-00832-8">Augmenting Large Language Models with Chemistry Tools</a> [Nature Machine Intelligence 2024]<br>
+        * <a href="https://aclanthology.org/2023.findings-emnlp.560.pdf">Monte Carlo Thought Search: Large Language Model Querying for Complex Scientific Reasoning in Catalyst Design</a> [EMNLP 2023]<br>
+      </td>
+      <td><a href="CSCE689-S25/L24.pdf">PDF</a></td>
+      <td> <b>Rithik</b> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td><b>W15</b></td>
+      <td> <b>4/22</b> </td>
+      <td colspan="2" align="center"> <b>Final Project Presentations</b> </td>
+      <td> N/A </td>
+      <td> <b>Students</b> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td> </td>
+      <td> <b>4/24</b> </td>
+      <td colspan="2" align="center"> <b>Final Project Presentations</b> </td>
+      <td> N/A </td>
+      <td> <b>Students</b> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td><b>W16</b></td>
+      <td> <b>5/4</b> </td>
+      <td colspan="4" align="center"> <span class="dark-red">Final Report Due (Sunday)</span> </td>
+    </tr>
+</table>
+</body>
+</html>
