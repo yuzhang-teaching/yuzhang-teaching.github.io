@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSCE670-S26</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="icon" href="./static/images/tamu.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <style>
+    .err1marker {
+      background-color: rgb(202,229,242);
+      padding: 3px;
+    }
+    .err2marker {
+      background-color: rgb(254,255,126);
+      padding: 3px;
+    }
+    .err3marker {
+      background-color: rgb(153,240,194);
+      padding: 3px;
+    }
+    body {
+      margin-left: 120px;
+      margin-right: 120px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+    h2 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    table {
+      font-size: 14px;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+    }
+    .dark-red {
+      color: darkred;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+<body>
+
+
+<header style="text-align: center; padding: 2em 0; border-bottom: 1px solid #ccc;">
+  <h1 style="font-size: 2em; margin: 0;">CSCE 670 - Information Storage and Retrieval (Spring 2026)</h1>
+</header>
+
+
+<h2><big><strong>Course Information</strong></big></h2>
+<ul>
+  <li><strong>Instructor:</strong> <a href="https://yuzhimanhua.github.io">Yu Zhang</a> (yuzhang [AT] tamu [DOT] edu)</li>
+  <li><strong>Lectures:</strong>
+    <ul style="margin-left: 40px;">
+        <li><strong>Time:</strong> Mondays, Wednesdays, and Fridays 1:50pm – 2:40pm</li>
+        <li><strong>Location:</strong> HRBB 113</li>
+    </ul>
+  </li>
+  <li><strong>Instructor Office Hour:</strong>
+    <ul style="margin-left: 40px;">
+        <li><strong>Time:</strong> Mondays 3:30pm – 4:30pm</li>
+        <li><strong>Location:</strong> PETR 222</li>
+    </ul>
+  </li>
+  <li><strong>Zoom Link (for Project Presentations):</strong> <a href="https://tamu.zoom.us/j/6411788612">https://tamu.zoom.us/j/6411788612</a></li>
+</ul>
+
+
+<h2><big><strong>Grading</strong></big></h2>
+<ul>
+  <li><strong>Homework:</strong> 30%
+    <ul style="margin-left: 40px;">
+        <li><strong>Homework 0:</strong> 2% <span class="dark-red">[due Jan 26]</span></li>
+        <li><strong>Homework 1:</strong> 7% <span class="dark-red">[due Feb 9]</span></li>
+        <li><strong>Homework 2:</strong> 7% <span class="dark-red">[due Mar 2]</span></li>
+        <li><strong>Homework 3:</strong> 7% <span class="dark-red">[due Mar 30]</span></li>
+        <li><strong>Homework 4:</strong> 7% <span class="dark-red">[due Apr 20]</span></li>
+    </ul>
+  </li>
+  <li><strong>Quizzes:</strong> 20%
+    <ul style="margin-left: 40px;">
+        <li><strong>Quiz 1:</strong> 5% <span class="dark-red">[in the Feb 6 class]</span></li>
+        <li><strong>Quiz 2:</strong> 5% <span class="dark-red">[in the Feb 27 class]</span></li>
+        <li><strong>Quiz 3:</strong> 5% <span class="dark-red">[in the Mar 25 class]</span></li>
+        <li><strong>Quiz 4:</strong> 5% <span class="dark-red">[in the Apr 15 class]</span></li>
+    </ul>
+  </li>
+  <li><strong>Group Project:</strong> 20%
+    <ul style="margin-left: 40px;">
+        <li><strong>Proposal:</strong> 2% <span class="dark-red">[due Mar 7]</span></li>
+        <li><strong>Presentation:</strong> 9% <span class="dark-red">[in the Apr 20, Apr 22, Apr 24, and Apr 27 classes]</span></li>
+        <li><strong>Report:</strong> 9% <span class="dark-red">[due May 2]</span></li>
+    </ul>
+  </li>
+  <li><strong>Final:</strong> 30% <span class="dark-red">[3:30pm – 5:30pm, May 4, HRBB 113]</span></li>
+</ul>
+
+
+<h2><big><b>Schedule (Subject to changes)</b></big></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Date</th>
+      <th>Topic</th>
+      <th>Slides</th>
+      <th>Optional Readings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>W1</b></td>
+      <td><b>1/12</b></td>
+      <td>Course Logistics</td>
+      <td></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/14</b></td>
+      <td>Overview of Information Retrieval, Boolean Retrieval</td>
+      <td></td>
+      <td><a href="https://nlp.stanford.edu/IR-book/pdf/01bool.pdf">[MRS Chapter 1]</a></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/16</b></td>
+      <td>Boolean Retrieval (Cont'd)</td>
+      <td></td>
+      <td><a href="https://nlp.stanford.edu/IR-book/pdf/02voc.pdf">[MRS Chapter 2]</a></td>
+    </tr>
+    <tr bgcolor="LightCoral">
+      <td><b>W2</b></td>
+      <td> <b>1/19</b> </td>
+      <td colspan="3" align="center"> <b>No Class (Martin Luther King, Jr. Day)</b> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/21</b></td>
+      <td>TF-IDF, Vector Space Model</td>
+      <td></td>
+      <td><a href="https://nlp.stanford.edu/IR-book/pdf/06vect.pdf">[MRS Chapter 6]</a>, <a href="https://nlp.stanford.edu/IR-book/pdf/07system.pdf">[MRS Chapter 7]</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/23</b></td>
+      <td>BM25</td>
+      <td></td>
+      <td><a href="https://nlp.stanford.edu/IR-book/pdf/11prob.pdf">[MRS Chapter 11]</a></td>
+    </tr>
+    <tr>
+      <td><b>W3</b></td>
+      <td><b>1/26</b></td>
+      <td>Link Analysis: PageRank</td>
+      <td></td>
+      <td><a href="https://nlp.stanford.edu/IR-book/pdf/21link.pdf">[MRS Chapter 21]</a>, <a href="http://infolab.stanford.edu/~ullman/mmds/ch5.pdf">[LRU Chapter 5.1]</a></td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td><b>1/26</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Homework 0 Due (Monday)</span> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/28</b></td>
+      <td>Link Analysis: PageRank (Cont'd), HITS</td>
+      <td></td>
+      <td><a href="http://infolab.stanford.edu/~ullman/mmds/ch5.pdf">[LRU Chapter 5.2/5.5]</a></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>1/30</b></td>
+      <td>Link Analysis: Topic-Sensitive PageRank</td>
+      <td></td>
+      <td><a href="http://infolab.stanford.edu/~ullman/mmds/ch5.pdf">[LRU Chapter 5.3/5.4]</a></td>
+    </tr>
+    <tr>
+      <td><b>W4</b></td>
+      <td><b>9/16</b></td>
+      <td>Evaluation </td>
+      <td><a href="CSCE670-F25/L7.pdf">PDF</a></td>
+      <td> <a href="https://nlp.stanford.edu/IR-book/pdf/08eval.pdf">[MRS Chapter 8]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>9/18</b></td>
+      <td>Evaluation (Cont'd) <span class="dark-red">and Quiz 1</span> </td>
+      <td><a href="CSCE670-F25/L8.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Sakai16.pdf">[Sakai, SIGIR'16]</a> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td><b>9/20</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Homework 1 Due (Saturday)</span> </td>
+    </tr>
+    <tr>
+      <td><b>W5</b></td>
+      <td><b>9/23</b></td>
+      <td>Learning to Rank</td>
+      <td><a href="CSCE670-F25/L9.pdf">PDF</a></td>
+      <td> <a href="https://nlp.stanford.edu/IR-book/pdf/14vcat.pdf">[MRS Chapter 14]</a>, <a href="CSCE670-F25/Nallapati04.pdf">[Nallapati, SIGIR'04]</a>, <a href="CSCE670-F25/Joachims02.pdf">[Joachims, KDD'02]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>9/25</b></td>
+      <td>Learning to Rank (Cont'd) and Course Project Info</td>
+      <td><a href="CSCE670-F25/L10.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Burges05.pdf">[Burges et al., ICML'05]</a>, <a href="CSCE670-F25/Burges06.pdf">[Burges et al., NIPS'06]</a> </td>
+    </tr>
+    <tr>
+      <td><b>W6</b></td>
+      <td><b>9/30</b></td>
+      <td>Recommender Systems: Collaborative Filtering</td>
+      <td><a href="CSCE670-F25/L11.pdf">PDF</a></td>
+      <td> <a href="http://infolab.stanford.edu/~ullman/mmds/ch9.pdf">[LRU Chapter 9.1/9.2/9.3]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>10/2</b></td>
+      <td>Recommender Systems: Matrix Factorization</td>
+      <td><a href="CSCE670-F25/L12.pdf">PDF</a></td>
+      <td> <a href="http://infolab.stanford.edu/~ullman/mmds/ch9.pdf">[LRU Chapter 9.4]</a>, <a href="CSCE670-F25/Koren09.pdf">[Koren, KDD'09]</a> </td>
+    </tr>
+    <tr>
+      <td><b>W7</b></td>
+      <td><b>10/7</b></td>
+      <td>Recommender Systems: Matrix Factorization (Cont'd) <span class="dark-red">and Quiz 2</span> </td>
+      <td><a href="CSCE670-F25/L13.pdf">PDF</a></td>
+      <td> <a href="http://infolab.stanford.edu/~ullman/mmds/ch9.pdf">[LRU Chapter 9.5]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>10/9</b></td>
+      <td>Recommender Systems: Bayesian Personalized Ranking</td>
+      <td><a href="CSCE670-F25/L14.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Rendle09.pdf">[Rendle et al., UAI'09]</a> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td><b>10/11</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Homework 2 Due (Saturday)</span> </td>
+    </tr>
+    <tr bgcolor="LightCoral">
+      <td><b>W8</b></td>
+      <td> <b>10/14</b> </td>
+      <td colspan="3" align="center"> <b>No Class (Fall Break)</b> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>10/16</b></td>
+      <td>Word Embedding, word2vec, GloVe</td>
+      <td><a href="CSCE670-F25/L15.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Mikolov13.pdf">[Mikolov et al., NIPS'13]</a>, <a href="CSCE670-F25/Levy14.pdf">[Levy and Goldberg, NIPS'14]</a>, <a href="CSCE670-F25/Pennington14.pdf">[Pennington et al., EMNLP'14]</a> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td><b>10/18</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Project Proposal Due (Saturday)</span> </td>
+    </tr>
+    <tr>
+      <td><b>W9</b></td>
+      <td><b>10/21</b></td>
+      <td>Neural Ranking, Dense Passage Retrieval</td>
+      <td><a href="CSCE670-F25/L16.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Nalisnick16.pdf">[Nalisnick et al., WWW'16]</a>, <a href="CSCE670-F25/Karpukhin20.pdf">[Karpukhin et al., EMNLP'20]</a>, <a href="CSCE670-F25/Mitra17.pdf">[Mitra et al., WWW'17]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>10/23</b></td>
+      <td>Contextualized Language Models, BERT</td>
+      <td><a href="CSCE670-F25/L17.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Vaswani17.pdf">[Vaswani et al., NIPS'17]</a>, <a href="CSCE670-F25/Devlin19.pdf">[Devlin et al., NAACL'19]</a>, <a href="CSCE670-F25/Clark20.pdf">[Clark et al., ICLR'20]</a> </td>
+    </tr>
+    <tr>
+      <td><b>W10</b></td>
+      <td><b>10/28</b></td>
+      <td>BERT-Based Ranking, ColBERT</td>
+      <td><a href="CSCE670-F25/L18.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Dai19.pdf">[Dai and Callan, SIGIR'19]</a>, <a href="CSCE670-F25/Nogueira19.pdf">[Nogueira and Cho, arXiv'19]</a>, <a href="CSCE670-F25/Khattab20.pdf">[Khattab and Zaharia, SIGIR'20]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>10/30</b></td>
+      <td>Neural Collaborative Filtering <span class="dark-red">and Quiz 3</span></td>
+      <td><a href="CSCE670-F25/L19.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/He17Neural.pdf">[He et al., WWW'17]</a> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td><b>11/1</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Homework 3 Due (Saturday)</span> </td>
+    </tr>
+    <tr>
+      <td><b>W11</b></td>
+      <td><b>11/4</b></td>
+      <td>Neural Collaborative Filtering (Cont'd) and Sequential Recommendation</td>
+      <td><a href="CSCE670-F25/L20.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Rendle20.pdf">[Rendle et al., RecSys'20]</a>, <a href="CSCE670-F25/He16.pdf">[He and McAuley, ICDM'16]</a>, <a href="CSCE670-F25/He17Translation.pdf">[He et al., RecSys'17]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>11/6</b></td>
+      <td>Large Language Models Basics</td>
+      <td><a href="CSCE670-F25/L21.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Brown20.pdf">[Brown et al., NeurIPS'20]</a>, <a href="CSCE670-F25/Wei22Finetuned.pdf">[Wei et al., ICLR'22]</a>, <a href="CSCE670-F25/Ouyang22.pdf">[Ouyang et al., NeurIPS'22]</a>, <br> <a href="CSCE670-F25/Wei22Chain.pdf">[Wei et al., NeurIPS'22]</a>, <a href="CSCE670-F25/Wang23.pdf">[Wang et al., ICLR'23]</a>, <a href="CSCE670-F25/Schick23.pdf">[Schick et al., NeurIPS'23]</a>, <a href="CSCE670-F25/Guo25.pdf">[Guo et al., Nature'25]</a> </td>
+    </tr>
+    <tr>
+      <td><b>W12</b></td>
+      <td><b>11/11</b></td>
+      <td>Large Language Models with Search Engines (Guest Lecture by <a href="https://peterjin.me">Bowen Jin</a>, <span class="dark-red">Zoom</span>)</td>
+      <td></td>
+      <td> <a href="CSCE670-F25/Jin25Search.pdf">[Jin et al., COLM'25]</a>, <a href="CSCE670-F25/Jin25Empirical.pdf">[Jin et al., arXiv'25]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>11/13</b></td>
+      <td>Large Language Models for Ranking</td>
+      <td><a href="CSCE670-F25/L23.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Sun23.pdf">[Sun et al., EMNLP'23]</a>, <a href="CSCE670-F25/Qin24.pdf">[Qin et al., NAACL'24]</a>, <a href="CSCE670-F25/Ma24.pdf">[Ma et al., SIGIR'24]</a> </td>
+    </tr>
+    <tr>
+      <td><b>W13</b></td>
+      <td><b>11/18</b></td>
+      <td>Large Language Models for Recommendation</td>
+      <td><a href="CSCE670-F25/L24.pdf">PDF</a></td>
+      <td> <a href="CSCE670-F25/Li23.pdf">[Li et al., KDD'23]</a>, <a href="CSCE670-F25/Liu23.pdf">[Liu et al., arXiv'23]</a>, <a href="CSCE670-F25/Hou24.pdf">[Hou et al., ECIR'24]</a> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><b>11/20</b></td>
+      <td>Logistics for Project Presentations / Final Exam <span class="dark-red"> and Quiz 4</span> </td>
+      <td><a href="CSCE670-F25/L25.pdf">PDF</a></td>
+      <td>-</td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td> </td>
+      <td><b>11/22</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Homework 4 Due (Saturday)</span> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td><b>W14</b></td>
+      <td><b>11/25</b></td>
+      <td colspan="3" align="center"> <b>Project Presentations</b> <span class="dark-red">(Zoom)</span> </td>
+    </tr>
+    <tr bgcolor="LightCoral">
+      <td></td>
+      <td><b>11/27</b></td>
+      <td colspan="3" align="center"> <b>No Class (Thanksgiving)</b> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td><b>W15</b></td>
+      <td><b>12/2</b></td>
+      <td colspan="3" align="center"> <b>Project Presentations</b> <span class="dark-red">(Zoom)</span> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td> </td>
+      <td><b>12/4</b></td>
+      <td colspan="3" align="center"> <b>Project Presentations</b> <span class="dark-red">(Zoom)</span> </td>
+    </tr>
+    <tr bgcolor="PaleTurquoise">
+      <td><b>W16</b></td>
+      <td><b>12/9</b></td>
+      <td colspan="3" align="center"> <span class="dark-red">Project Report Due (Tuesday)</span> </td>
+    </tr>
+    <tr bgcolor="LemonChiffon">
+      <td><b>W17</b></td>
+      <td><b>12/16</b></td>
+      <td colspan="3" align="center"> <b>Final Exam</b> </td>
+    </tr>
+</table>
+</body>
+</html>
